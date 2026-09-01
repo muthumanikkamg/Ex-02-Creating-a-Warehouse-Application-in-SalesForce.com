@@ -1,75 +1,116 @@
-# Ex-02-Creating-a-Warehouse-Application-in-SalesForce.com
+# Lab 5 – Build a Database Server (AWS)
 
-## AIM:
-To create a warehouse application in salesforce.com
+## Author
 
-## Procedure
-
-### Types of Applications in SFDC
-
-In Salesforce.com, we have two types of Applications they are
-1.	Classic Apps and
-2.	Lightning Apps.
-
-In Salesforce we can create, manage and customise both applications according to user requirement.
-
-## PROCEDURE
-
-### Step 1: Log into your developer
-![Ex2-1](https://github.com/DrMalathiSaravanan/Ex-02-Creating-a-Warehouse-Application-in-SalesForce.com/assets/139700114/93b506fe-5542-4036-a344-939cbe7e67f3)
-
-### Step 2: Click the Setup Link (upper-right corner).
- ![ex2-2](https://github.com/DrMalathiSaravanan/Ex-02-Creating-a-Warehouse-Application-in-SalesForce.com/assets/139700114/183746f5-0293-4cd4-bece-09eb8b7ed11e)
+* **Name**: MUTHU MANIKKAM G
+* **Register Number**: 212225100029
 
 
-### Step 3: In the Left Navigation, Platform tools, then click App Manager
-![ex2-3](https://github.com/DrMalathiSaravanan/Ex-02-Creating-a-Warehouse-Application-in-SalesForce.com/assets/139700114/e5f4f615-d819-40cd-92d6-9d61da20122d)
+---
 
-### Step 4: Click New Lightning App
+## Objective
 
-![ex2-4](https://github.com/DrMalathiSaravanan/Ex-02-Creating-a-Warehouse-Application-in-SalesForce.com/assets/139700114/76777c8e-433b-439d-9813-f0eafa73acb4)
+The objective of this experiment is to understand how to deploy and configure a database server in AWS. This lab focuses on launching an EC2 instance, installing a database management system (DBMS), configuring basic database settings, creating a sample database, and validating connectivity to the database server.
 
-### Step 5: 
-After Next, define the fields for the custom app.
-•	App Label: Search Service.
-•	App Name: Search Service.
-•	Description: Search Service is one app where we manage all the business data and catalogues.
- ![ex2-5](https://github.com/DrMalathiSaravanan/Ex-02-Creating-a-Warehouse-Application-in-SalesForce.com/assets/139700114/e82870fd-7400-4bf6-9dfe-622df1825574)
+---
+
+## Prerequisites
+
+* Basic understanding of cloud computing concepts
+* AWS account or AWS Academy Lab access
+* An existing VPC and EC2 knowledge (from previous labs)
+* Basic knowledge of Linux commands and SQL
+
+---
+
+## Tools Used
+
+* AWS Management Console
+* Amazon EC2
+* Security Groups
+* SSH Client (Terminal / PuTTY)
+* MySQL / MariaDB / PostgreSQL (any one)
+
+---
+
+## Tasks Performed
+
+### Task 1: Launch EC2 Instance for Database Server
+
+Launch a new EC2 instance using Amazon Linux 2 AMI. Select an appropriate instance type and configure key pair and security group.
+
+---
+
+### Task 2: Configure Security Group for Database Access
+
+Modify the security group to allow:
+
+* SSH (Port 22) for remote access
+* Database port (e.g., MySQL – 3306 or PostgreSQL – 5432)
+
+---
+
+### Task 3: Connect to EC2 Instance
+
+Connect to the EC2 instance using SSH from your local machine.
+
+---
+
+### Task 4: Install Database Server
+
+Install a database server software such as MySQL, MariaDB, or PostgreSQL on the EC2 instance using package manager commands.
+
+---
+
+### Task 5: Start and Configure Database Service
+
+Start the database service and configure basic settings such as root password and user privileges.
+
+---
+
+### Task 6: Create a Sample Database
+
+Create a sample database and a table inside it. Insert a few records into the table.
+
+---
+
+### Task 7: Test Database Connectivity
+
+Test the database server by connecting to it locally or remotely and performing basic SQL queries.
+
+---
+
+## Workflow (Student Explanation)
+
+1. First, a security group named DB Security Group was created to allow the web server to connect to the database using port 3306 (MySQL).
+2. A DB Subnet Group was created with subnets from two Availability Zones to allow the database to run in a Multi-AZ environment for high availability.
+3. A MySQL RDS instance named lab-db was created with the database name lab, username main, and password lab-password.
+4. The database was associated with the DB Security Group and the Lab VPC so that the web server can securely connect to the database.
+5. The web application running on the EC2 server was opened using its IP address, and the RDS endpoint, database name, username, and password were entered to interact with the database.
 
 
-### Step 6: Choose the Image Source for the Custom App Logo.
+---
 
-Note: Before inserting an image for the logo you need to use the following procedure to add an image to the image gallery.
- 
-### Step 7: Select Console Option
+## Output Screenshots (Attach 3)
 
+### Screenshot 1: EC2 Instance for Database Server
 
-![ex2-7](https://github.com/DrMalathiSaravanan/Ex-02-Creating-a-Warehouse-Application-in-SalesForce.com/assets/139700114/f4401b49-8fc7-418a-ae18-1ec61d115739)
+<img width="1919" height="1026" alt="Screenshot 2026-03-01 102831" src="https://github.com/user-attachments/assets/1d3d12d2-6e67-45d9-b774-7b1f60405f5f" />
 
+---
 
+### Screenshot 2: Database Service Running
 
-### Step 8: Select a utility item
+<img width="1919" height="1046" alt="Screenshot 2026-03-01 104042" src="https://github.com/user-attachments/assets/4e440ff0-99de-4be6-96ea-b41b836ef95e" />
 
+---
 
-![ex2-8](https://github.com/DrMalathiSaravanan/Ex-02-Creating-a-Warehouse-Application-in-SalesForce.com/assets/139700114/9f6179b9-a990-4edc-87a1-f9a5ecdbec0c)
+### Screenshot 3: Sample Database and Table
 
+<img width="1910" height="1133" alt="Screenshot 2026-03-01 105153" src="https://github.com/user-attachments/assets/a6917d75-af8c-4dd8-bf5f-45b03f311162" />
 
+---
 
-### Step 9: Select any of the user profiles. Then Click Save &Finish
+## Result
 
-
-![ex2-9](https://github.com/DrMalathiSaravanan/Ex-02-Creating-a-Warehouse-Application-in-SalesForce.com/assets/139700114/454ff962-a7a0-41c3-9cd0-0b3e638f117b)
-
- 
-### Step 10: A new app will be created and displayed
-
-
-
-![ex2-10](https://github.com/DrMalathiSaravanan/Ex-02-Creating-a-Warehouse-Application-in-SalesForce.com/assets/139700114/9be0d550-d6ad-434e-82bb-74f9c05bfd2f)
-
-
-
-
-## RESULT:
-
-Thus, creating a Warehouse Application in SalesForce.com is successfully created.
+This experiment demonstrated how to build a database server in AWS using an EC2 instance. By installing and configuring a DBMS, creating a sample database, and testing connectivity, the fundamentals of hosting and managing a cloud-based database server were underst
